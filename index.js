@@ -6,7 +6,7 @@ const sqlite3 = require('sqlite3').verbose();
 const app = express();
 const port = 3000;
 
-// var db = new sqlite3.Database('C:/Users/Utkarsh/OneDrive/Desktop/History');
+// var db = new sqlite3.Database('C:/Users/Nishchay/OneDrive/Desktop/History');
 // console.log(db);
 
 app.get('/start/:browser/:url', async (req, res) => {
@@ -27,7 +27,7 @@ app.get('/stop/:browser', async (req, res) => {
 function getCurrentUrl(req){
     const fullUrl = `${req.protocol}://${req.get("host")}${req.originalUrl}`;
     console.log("Current tab url",fullUrl)
-}
+}  
 
 app.get('/history', async (req, res) => {
     // db.serialize(function () {
@@ -52,6 +52,7 @@ app.get('/delete/:browser', async (req, res) => {
 });
 
 app.get('/geturl/:browser', async (req, res) => {
+    getCurrentUrl(res)
     // const fullUrl = `${req.protocol}://${req.get("host")}${req.originalUrl}`;
     // console.log("Current tab url",fullUrl)
 });

@@ -30,11 +30,11 @@ function getCurrentUrl(req){
 }  
 
 app.get('/history', async (req, res) => {
-    // db.serialize(function () {
-    //     db.all('SELECT * FROM urls ORDER BY id DESC LIMIT 10;', function (err, rows) {
-    //         console.log(rows);
-    //     });
-    // });
+     db.serialize(function () {
+        db.all('SELECT * FROM urls ORDER BY id DESC LIMIT 10;', function (err, rows) {
+             console.log(rows);
+         });
+     });
 
 });
 
